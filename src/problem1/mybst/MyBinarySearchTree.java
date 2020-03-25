@@ -15,5 +15,6 @@ public class MyBinarySearchTree<E> implements MyBinarySearchTreeADT<E> {
         return false;
     }
 
-    private TreeNode root;
+    private TreeNode<E> root;
+    private int numberOfLeftChild;
 }
