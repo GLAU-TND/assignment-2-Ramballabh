@@ -6,4 +6,8 @@ public class Student {
     public Student(int rollNumber) {
         this.rollNumber = rollNumber;
     }
+
+    public int getRollNumber() {
+        return rollNumber;
+    }
 }
