@@ -13,4 +13,12 @@ public class Node<E> {
     public Node(E data) {
         this.data = data;
     }
+
+    public E getData() {
+        return data;
+    }
+
+    public Node<E> getNext() {
+        return next;
+    }
 }
