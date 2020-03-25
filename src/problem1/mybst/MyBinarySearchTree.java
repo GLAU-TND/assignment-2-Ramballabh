@@ -7,5 +7,9 @@
 package problem1.mybst;
 
 // to implement BinarySearchTree
-public class MyBinarySearchTree {
+public class MyBinarySearchTree<E> implements MyBinarySearchTreeADT<E> {
+    @Override
+    public boolean add(E data) {
+        return false;
+    }
 }
