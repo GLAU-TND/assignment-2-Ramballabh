@@ -11,7 +11,7 @@ import problem1.node.TreeNode;
 // to implement BinarySearchTree
 public class MyBinarySearchTree<E> implements MyBinarySearchTreeADT<E> {
     private TreeNode<E> root;
-    private int numberOfLeftChild = 0;
+    public int numberOfLeftChild = 0;
     private int maxLevel = 0;
 
     @Override
@@ -37,15 +37,17 @@ public class MyBinarySearchTree<E> implements MyBinarySearchTreeADT<E> {
         }
         if (maxLevel < level) {
             System.out.print(node.getData() + " ");
-            maxLevel = level;
+        }
+        maxLevel = level;
+        if (node.getLeftChild() == null) {
+            numberOfLeftChild++;
+            maxLevel++;
         }
         printLeftChild(node.getLeftChild(), level + 1);
         printLeftChild(node.getRightChild(), level + 1);
     }
-
     public void print() {
         printLeftChild(root, 1);
+        System.out.println();
     }
-
-
 }
