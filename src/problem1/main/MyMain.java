@@ -24,5 +24,6 @@ public class MyMain {
         myBinarySearchTree.add(110);
         myBinarySearchTree.add(250);
         myBinarySearchTree.add(275);
+        myBinarySearchTree.print();
     }
 }
