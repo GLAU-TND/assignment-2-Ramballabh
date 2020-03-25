@@ -14,6 +14,10 @@ public class MyBinarySearchTree<E> implements MyBinarySearchTreeADT<E> {
     public int numberOfLeftChild = 0;
     private int maxLevel = 0;
 
+    public TreeNode<E> getRoot() {
+        return root;
+    }
+
     @Override
     public boolean add(E data) {
         root = addRecursive(root, data);

@@ -14,6 +14,11 @@ import problem1.node.TreeNode;
 public class MyMain {
     public static void main(String[] args) {
         MyBinarySearchTree<Integer> myBinarySearchTree = new MyBinarySearchTree<>();
+        myBinarySearchTree.add(10);
+        myBinarySearchTree.add(17);
+        myBinarySearchTree.add(8);
+        myBinarySearchTree.add(15);
+        myBinarySearchTree.add(1);
 
     }
 
@@ -27,6 +32,8 @@ public class MyMain {
 
     public static void traversePostOrder(TreeNode<Integer> currentNode) {
         if (currentNode != null) {
+            traversePostOrder(currentNode.getLeftChild());
+            traversePostOrder(currentNode.getRightChild());
             System.out.print(currentNode.getData() + " ");
         }
     }
