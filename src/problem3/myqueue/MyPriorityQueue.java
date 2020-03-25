@@ -6,5 +6,21 @@
  */
 package problem3.myqueue;
 
-public class MyPriorityQueue<E> {
+import problem3.adt.QueueADT;
+
+public class MyPriorityQueue<E> implements QueueADT<E> {
+    @Override
+    public void add(E data) {
+
+    }
+
+    @Override
+    public E remove() {
+        return null;
+    }
+
+    @Override
+    public E peek() {
+        return null;
+    }
 }
