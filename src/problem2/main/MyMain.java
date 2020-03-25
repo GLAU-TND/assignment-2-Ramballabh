@@ -20,7 +20,12 @@ public class MyMain {
     public static void traversePreOrder(TreeNode<Integer> currentNode) {
         if (currentNode != null) {
             System.out.println(currentNode.getData());
-
+            traversePreOrder(currentNode.getLeftChild());
+            traversePreOrder(currentNode.getRightChild());
         }
+    }
+
+    public static void traversePostOrder(TreeNode<Integer> currentNode) {
+
     }
 }
