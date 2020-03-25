@@ -21,4 +21,12 @@ public class Node<E> {
     public Node<E> getNext() {
         return next;
     }
+
+    public void setData(E data) {
+        this.data = data;
+    }
+
+    public void setNext(Node<E> next) {
+        this.next = next;
+    }
 }
