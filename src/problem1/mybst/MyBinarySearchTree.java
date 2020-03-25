@@ -18,9 +18,8 @@ public class MyBinarySearchTree<E> implements MyBinarySearchTreeADT<E> {
         return false;
     }
 
-    private TreeNode<E> addRecursive(TreeNode<E> node) {
-
-        return node;
+    private TreeNode<E> addRecursive(TreeNode<E> currentNode, E data) {
+        return currentNode;
     }
 
 }
