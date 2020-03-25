@@ -1,4 +1,6 @@
 package problem3.adt;
 
-public interface QueueADT {
+public interface QueueADT<Student> {
+    void add(Student data);
+
 }
