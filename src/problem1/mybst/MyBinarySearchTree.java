@@ -12,6 +12,7 @@ import problem1.node.TreeNode;
 public class MyBinarySearchTree<E> implements MyBinarySearchTreeADT<E> {
     private TreeNode<E> root;
     private int numberOfLeftChild = 0;
+    private int maxLevel = 0;
 
     @Override
     public boolean add(E data) {
@@ -29,5 +30,6 @@ public class MyBinarySearchTree<E> implements MyBinarySearchTreeADT<E> {
         }
         return currentNode;
     }
+
 
 }
