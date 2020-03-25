@@ -15,7 +15,8 @@ public class MyBinarySearchTree<E> implements MyBinarySearchTreeADT<E> {
 
     @Override
     public boolean add(E data) {
-        return false;
+        root = addRecursive(root, data);
+        return true;
     }
 
     private TreeNode<E> addRecursive(TreeNode<E> currentNode, E data) {
