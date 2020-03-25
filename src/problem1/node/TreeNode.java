@@ -26,4 +26,16 @@ public class TreeNode<E> {
     public TreeNode<E> getRightChild() {
         return rightChild;
     }
+
+    public void setData(E data) {
+        this.data = data;
+    }
+
+    public void setLeftChild(TreeNode<E> leftChild) {
+        this.leftChild = leftChild;
+    }
+
+    public void setRightChild(TreeNode<E> rightChild) {
+        this.rightChild = rightChild;
+    }
 }
