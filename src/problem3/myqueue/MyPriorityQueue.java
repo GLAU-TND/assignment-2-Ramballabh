@@ -13,10 +13,19 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
     private int size = 0;
     private Node<E> front;
     private Node<E> rear;
-
     @Override
     public void add(E data) {
-
+        if (size == 0) {
+            Node<E> node = new Node<E>(data, null);
+            front = node;
+            rear = node;
+            size++;
+        } else {
+            Node<E> node = new Node<E>(data, rear.getNext());
+            rear.setNext(node);
+            rear = node;
+            size++;
+        }
     }
 
     @Override
