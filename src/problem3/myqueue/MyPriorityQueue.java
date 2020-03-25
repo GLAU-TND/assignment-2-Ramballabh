@@ -9,6 +9,8 @@ package problem3.myqueue;
 import problem3.adt.QueueADT;
 
 public class MyPriorityQueue<E> implements QueueADT<E> {
+    private int size = 0;
+
     @Override
     public void add(E data) {
 
