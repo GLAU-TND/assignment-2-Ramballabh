@@ -14,4 +14,7 @@ public interface QueueADT<E> {
 
     E peek();
 
+    // sort the queue
+
+    void sort();
 }
