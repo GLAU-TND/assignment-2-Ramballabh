@@ -38,6 +38,7 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
 
     @Override
     public E peek() {
-        return null;
+        E data = front.getData();
+        return data;
     }
 }
