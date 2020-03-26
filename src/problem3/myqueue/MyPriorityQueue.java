@@ -41,4 +41,32 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
         E data = front.getData();
         return data;
     }
+
+    @Override
+    public void sort() {
+        Node<E> current = front;
+        Node<E> index = null;
+        E temp;
+
+        if (front == null) {
+            return;
+        } else {
+            while (current != null) {
+                //Node index will point to node next to current
+                index = current.getNext();
+
+                while (index != null) {
+                    //If current node's data is greater than index's node data, swap the data between them
+                    if ((current.getData()).equals(index.getData())) {
+                        temp = (E) current.getData();
+                        current.setData(index.getData());
+                        index.setData(temp);
+                    }
+                    index = index.getNext();
+                }
+                current = current.getNext();
+            }
+        }
+    }
 }
+
