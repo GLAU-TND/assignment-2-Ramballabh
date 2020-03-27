@@ -14,9 +14,31 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
     private Node<E> front;
     private Node<E> rear;
 
+    private Node<E> getNode(int index) {
+        Node<E> response = front;
+        if (index < 0 && index > size) {
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        } else {
+            for (int i = 1; i < index && front != null; i++) {
+                response = response.getNext();
+            }
+        }
+        return response;
+    }
+
     private void sortedAdd(E data) {
-
-
+        Node<E> node = new Node<>(data);
+        for (int i = 0; i < size; i++) {
+            Node<E> node1 = getNode(size - i);
+            if (node.getData().equals(node1.getData())) {
+                node.setNext(node1.getNext());
+                node1.setNext(node);
+            } else {
+                continue;
+            }
+        }
+        rear = getNode(size);
+        size++;
     }
 
     @Override
