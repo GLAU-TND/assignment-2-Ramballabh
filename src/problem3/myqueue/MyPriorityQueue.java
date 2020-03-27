@@ -38,6 +38,7 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
             }
         }
         rear = getNode(size);
+        front = getNode(1);
         size++;
     }
 
@@ -65,6 +66,10 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
     public E peek() {
         E data = front.getData();
         return data;
+    }
+
+    public void print() {
+
     }
 }
 
