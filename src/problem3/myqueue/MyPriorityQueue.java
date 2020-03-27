@@ -74,7 +74,7 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
         for (int i = 0; i < size && temp != null; i++) {
             E data = temp.getData();
             sb.append(data);
-            sb.append((i < size - 1) ? "," : "");
+            sb.append((i < size - 1) ? ",\n" : "");
             temp = temp.getNext();
         }
         sb.append("]");

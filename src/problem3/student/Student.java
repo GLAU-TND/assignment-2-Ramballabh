@@ -19,13 +19,21 @@ public class Student {
         return rollNumber;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setRollNumber(int rollNumber) {
         this.rollNumber = rollNumber;
     }
 
     @Override
     public String toString() {
-        return rollNumber + "";
+        return rollNumber + "." + name;
     }
 
     @Override
