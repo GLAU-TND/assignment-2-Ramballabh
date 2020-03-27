@@ -4,9 +4,15 @@ import java.util.Objects;
 
 public class Student {
     private int rollNumber;
+    private String name;
 
     public Student(int rollNumber) {
         this.rollNumber = rollNumber;
+    }
+
+    public Student(int rollNumber, String name) {
+        this.rollNumber = rollNumber;
+        this.name = name;
     }
 
     public int getRollNumber() {
@@ -15,6 +21,11 @@ public class Student {
 
     public void setRollNumber(int rollNumber) {
         this.rollNumber = rollNumber;
+    }
+
+    @Override
+    public String toString() {
+        return rollNumber + "";
     }
 
     @Override

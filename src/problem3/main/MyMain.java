@@ -17,6 +17,8 @@ public class MyMain {
         myPriorityQueue.add(new Student(1));
         myPriorityQueue.add(new Student(5));
         myPriorityQueue.add(new Student(3));
+        myPriorityQueue.add(new Student(2));
+        myPriorityQueue.remove();
         System.out.println(myPriorityQueue);
     }
 }
