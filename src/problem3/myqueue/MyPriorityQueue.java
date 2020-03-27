@@ -13,6 +13,12 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
     private int size = 0;
     private Node<E> front;
     private Node<E> rear;
+
+    private void sortedAdd(E data) {
+
+
+    }
+
     @Override
     public void add(E data) {
         if (size == 0) {
@@ -21,10 +27,7 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
             rear = node;
             size++;
         } else {
-            Node<E> node = new Node<E>(data, rear.getNext());
-            rear.setNext(node);
-            rear = node;
-            size++;
+            sortedAdd(data);
         }
     }
 
@@ -40,33 +43,6 @@ public class MyPriorityQueue<E> implements QueueADT<E> {
     public E peek() {
         E data = front.getData();
         return data;
-    }
-
-    @Override
-    public void sort() {
-        Node<E> current = front;
-        Node<E> index = null;
-        E temp;
-
-        if (front == null) {
-            return;
-        } else {
-            while (current != null) {
-                //Node index will point to node next to current
-                index = current.getNext();
-
-                while (index != null) {
-                    //If current node's data is greater than index's node data, swap the data between them
-                    if ((current.getData()).equals(index.getData())) {
-                        temp = (E) current.getData();
-                        current.setData(index.getData());
-                        index.setData(temp);
-                    }
-                    index = index.getNext();
-                }
-                current = current.getNext();
-            }
-        }
     }
 }
 
