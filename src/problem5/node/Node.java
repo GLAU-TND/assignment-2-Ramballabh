@@ -6,32 +6,26 @@
  */
 package problem5.node;
 // to define node properties
-public class Node<E> {
-    private E data;
-    private Node<E> next;
 
-    public Node(E data) {
-        this.data = data;
+import problem5.student.Student;
+
+public class Node {
+    private Student student;
+    private Node next;
+
+    public Student getStudent() {
+        return student;
     }
 
-    public Node(E data, Node<E> next) {
-        this.data = data;
-        this.next = next;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    public E getData() {
-        return data;
-    }
-
-    public Node<E> getNext() {
+    public Node getNext() {
         return next;
     }
 
-    public void setData(E data) {
-        this.data = data;
-    }
-
-    public void setNext(Node<E> next) {
+    public void setNext(Node next) {
         this.next = next;
     }
 }

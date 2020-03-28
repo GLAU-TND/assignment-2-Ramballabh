@@ -6,75 +6,95 @@
  */
 package problem5.circularqueue;
 
-import problem3.node.Node;
-import problem5.adt.CircularQueueADT;
+import problem5.node.Node;
 
 //to implement circular queue
-public class
-MyCircularQueue<E> implements CircularQueueADT<E> {
-    private Node<E> rear;
-    private int size;
 
-    @Override
-    public void enqueue(E data) {
-        Node node = new Node(data);
-        if (isEmpty()) {
-            rear = node;
-            size++;
-            node.setNext(node);
+public class MyCircularQueue {
+    private Node front;
+    private Node rear;
+
+    public Node getFront() {
+        return front;
+    }
+
+    public void setFront(Node front) {
+        this.front = front;
+    }
+
+    public Node getRear() {
+        return rear;
+    }
+
+    public void setRear(Node rear) {
+        this.rear = rear;
+    }
+
+    public void enQueue(Node newNode) {
+        if (getFront() == null && getRear() == null) {
+            setFront(newNode);
+            setRear(newNode);
+            getRear().setNext(getFront());
         } else {
-            node.setNext(rear.getNext());
-            rear.setNext(node);
-            rear = node;
-            size++;
+            newNode.setNext(getFront());
+            getRear().setNext(newNode);
+            setRear(getRear().getNext());
         }
     }
 
-    @Override
-    public E dequeue() {
-        Node<E> response = null;
-        E data = null;
-        if (!isEmpty()) {
+    public void traverseQueue() {
+        Node temp = getFront();
 
-            response = rear.getNext();
-            data = response.getData();
-            size--;
-            if (rear.getNext() == rear) {
-                rear = null;
-            } else {
-                rear.setNext(response.getNext());
-            }
-        }
-        return data;
-    }
-
-    @Override
-    public E peek() {
-        Node<E> node = rear.getNext();
-        E data = node.getData();
-        return data;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    @Override
-    public int getSize() {
-        return size;
-    }
-
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("[");
-        Node<E> temp = rear.getNext();
-        for (int i = 0; i < size && temp != null; i++) {
-            E data = temp.getData();
-            sb.append(data);
-            sb.append((i < size - 1) ? "," : "");
+        while (true) {
+            System.out.println(temp.getStudent());
             temp = temp.getNext();
+            if (temp == getFront())
+                break;
         }
-        sb.append("]");
-        return sb.toString();
+    }
+
+    public Node deQueue() {
+        Node temp;
+        if (getFront() == null) {
+            return null;
+        } else if (getFront() == getRear()) {
+            temp = getFront();
+            setRear(null);
+            setFront(null);
+        } else {
+            temp = getFront();
+            setFront(getFront().getNext());
+            getRear().setNext(getFront());
+        }
+        return temp;
+    }
+
+    public void removeZeroBacklogRecords() {
+        Node before = getRear();
+        Node ahead = getFront();
+        while (true) {
+            if (ahead.getStudent().getBackLogCounter() == 0) {
+                System.out.println("Removed data --> ");
+                System.out.println(ahead.getStudent());
+                if (ahead == getFront()) {
+                    before.setNext(ahead.getNext());
+                    setFront(getFront().getNext());
+                    ahead = ahead.getNext();
+                    continue;
+                } else if (ahead == getRear()) {
+                    before.setNext(ahead.getNext());
+                    setRear(before);
+                    break;
+                } else {
+                    before.setNext(ahead.getNext());
+                    ahead = ahead.getNext();
+                }
+            } else {
+                ahead = ahead.getNext();
+                before = before.getNext();
+            }
+            if (ahead == getFront())
+                break;
+        }
     }
 }
