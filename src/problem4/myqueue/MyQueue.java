@@ -35,4 +35,8 @@ public class MyQueue<E> implements MyQueueADT<E> {
     public int getSize() {
         return 0;
     }
+
+    private static class Node<E> {
+
+    }
 }
