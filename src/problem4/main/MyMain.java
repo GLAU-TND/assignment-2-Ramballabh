@@ -7,6 +7,8 @@
 package problem4.main;
 
 import problem1.mybst.MyBinarySearchTree;
+import problem1.node.TreeNode;
+import problem4.myqueue.MyQueue;
 
 import java.util.Scanner;
 
@@ -22,6 +24,18 @@ public class MyMain {
         for (String s1 : ar) {
             myBinarySearchTree.add(Integer.parseInt(s1));
         }
+        MyQueue<Integer> myQueue = traversePreOrder(myBinarySearchTree.getRoot());
+        System.out.println(myQueue);
 
+    }
+
+    public static MyQueue traversePreOrder(TreeNode<Integer> currentNode) {
+        MyQueue<Integer> myQueue = new MyQueue<>();
+        if (currentNode != null) {
+            myQueue.enqueue(currentNode.getData());
+            traversePreOrder(currentNode.getLeftChild());
+            traversePreOrder(currentNode.getRightChild());
+        }
+        return myQueue;
     }
 }
