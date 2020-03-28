@@ -24,18 +24,27 @@ public class MyMain {
         for (String s1 : ar) {
             myBinarySearchTree.add(Integer.parseInt(s1));
         }
-        MyQueue<Integer> myQueue = traversePreOrder(myBinarySearchTree.getRoot());
-        System.out.println(myQueue);
-
+        MyQueue<Integer> myQueue = new MyQueue<>();
+        System.out.println("Nodes After traversing in Pre Order :");
+        MyQueue<Integer> myQueue1 = traversePreOrder(myBinarySearchTree.getRoot(), myQueue);
+        System.out.println();
+        System.out.println("Queue of Pre Order Successor :");
+        MyQueue<Integer> myQueue2 = getQueuePreOrderSuccessor(myQueue1);
+        System.out.println(myQueue2);
     }
 
-    public static MyQueue traversePreOrder(TreeNode<Integer> currentNode) {
-        MyQueue<Integer> myQueue = new MyQueue<>();
+    public static MyQueue traversePreOrder(TreeNode<Integer> currentNode, MyQueue<Integer> myQueue) {
         if (currentNode != null) {
             myQueue.enqueue(currentNode.getData());
-            traversePreOrder(currentNode.getLeftChild());
-            traversePreOrder(currentNode.getRightChild());
+            System.out.print(currentNode.getData() + " ");
+            traversePreOrder(currentNode.getLeftChild(), myQueue);
+            traversePreOrder(currentNode.getRightChild(), myQueue);
         }
+        return myQueue;
+    }
+
+    public static MyQueue getQueuePreOrderSuccessor(MyQueue myQueue) {
+        myQueue.dequeue();
         return myQueue;
     }
 }
