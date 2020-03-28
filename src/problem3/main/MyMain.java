@@ -18,6 +18,7 @@ public class MyMain {
         myPriorityQueue.add(new Student(5, "krishna"));
         myPriorityQueue.add(new Student(3, "gopal"));
         myPriorityQueue.add(new Student(2, "raghav"));
+        System.out.println("Queue After Arranging according to ROLL NUMBER : ");
         System.out.println(myPriorityQueue);
     }
 }
