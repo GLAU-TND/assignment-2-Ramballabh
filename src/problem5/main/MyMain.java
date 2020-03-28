@@ -7,32 +7,49 @@
 package problem5.main;
 
 import problem5.circularqueue.MyCircularQueue;
+import problem5.node.Node;
 import problem5.student.Student;
 
 import java.util.Scanner;
 
 //executable class
+
 public class MyMain {
     public static void main(String[] args) {
-        MyCircularQueue<Student> myCircularQueue = new MyCircularQueue<>();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter number of Students you want to add in queue :");
-        int n = scanner.nextInt();
-        scanner.nextLine();
-        for (int i = 1; i <= n; i++) {
-            System.out.println("Enter the detail of Student" + i + " :");
-            System.out.print("Enter name :");
-            String name = scanner.nextLine();
-            System.out.print("Enter roll Number :");
-            int rollNumber = scanner.nextInt();
-            System.out.print("Enter number of BackLogs :");
-            int backLog = scanner.nextInt();
-            scanner.nextLine();
-            Student st = new Student(rollNumber, name, backLog);
-            myCircularQueue.enqueue(st);
+        Scanner scan = new Scanner(System.in);
+        MyCircularQueue circularQueue = new MyCircularQueue();
+
+        System.out.println("Enter number of records you wants to enter");
+        int numberOfRecords = scan.nextInt();
+        while (numberOfRecords != 0) {
+            Student student = new Student();
+            Node node = new Node();
+
+            System.out.println("Enter name");
+            student.setName(scan.next().trim());
+            System.out.println("Enter roll number");
+            student.setRollNumber(scan.nextInt());
+            System.out.println("Enter backlogs");
+            int backLogs = scan.nextInt();
+            if (backLogs > 2) {
+                System.out.println("This student is not allowed");
+                continue;
+            }
+            student.setBackLogCounter(backLogs);
+
+            node.setStudent(student);
+
+            circularQueue.enQueue(node);
+
+            numberOfRecords--;
         }
+        System.out.println("Data before deleting records");
+        circularQueue.traverseQueue();
 
-        System.out.println(myCircularQueue);
+        System.out.println("Removing zero backlog students");
+        circularQueue.removeZeroBacklogRecords();
+
+        System.out.println("Data after deleting records");
+        circularQueue.traverseQueue();
     }
-
 }
