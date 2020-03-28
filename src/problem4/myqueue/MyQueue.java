@@ -37,6 +37,7 @@ public class MyQueue<E> implements MyQueueADT<E> {
     }
 
     private static class Node<E> {
-
+        E data;
+        Node<E> next;
     }
 }
