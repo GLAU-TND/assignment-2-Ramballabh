@@ -64,4 +64,17 @@ MyCircularQueue<E> implements CircularQueueADT<E> {
     public int getSize() {
         return size;
     }
+
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("[");
+        Node<E> temp = rear.getNext();
+        for (int i = 0; i < size && temp != null; i++) {
+            E data = temp.getData();
+            sb.append(data);
+            sb.append((i < size - 1) ? "," : "");
+            temp = temp.getNext();
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 }

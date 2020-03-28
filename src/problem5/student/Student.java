@@ -11,13 +11,10 @@ public class Student {
     private String name;
     private int backLog;
 
-    public Student(int rollNumber) {
-        this.rollNumber = rollNumber;
-    }
-
-    public Student(int rollNumber, String name) {
+    public Student(int rollNumber, String name, int backLog) {
         this.rollNumber = rollNumber;
         this.name = name;
+        this.backLog = backLog;
     }
 
     public int getRollNumber() {
