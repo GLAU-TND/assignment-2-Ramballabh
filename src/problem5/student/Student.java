@@ -28,6 +28,11 @@ public class Student {
         this.rollNumber = rollNumber;
     }
 
+
+    public int getBackLog() {
+        return backLog;
+    }
+
     public String getName() {
         return name;
     }
@@ -36,11 +41,16 @@ public class Student {
         this.name = name;
     }
 
+    public void setBackLog(int backLog) {
+        this.backLog = backLog;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "rollNumber=" + rollNumber +
                 ", name='" + name + '\'' +
+                ", backLog=" + backLog +
                 '}';
     }
 }
