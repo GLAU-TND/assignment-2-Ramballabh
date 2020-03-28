@@ -44,7 +44,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "{" +
                 "rollNumber=" + rollNumber +
                 ", name='" + name + '\'' +
                 ", backLog=" + backLog +
