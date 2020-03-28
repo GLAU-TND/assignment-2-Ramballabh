@@ -10,6 +10,9 @@ package problem4.myqueue;
 import problem4.adt.MyQueueADT;
 
 public class MyQueue<E> implements MyQueueADT<E> {
+    private Node<E> front;
+    private Node<E> rear;
+    private int size = 0;
 
     @Override
     public void enqueue(E data) {
